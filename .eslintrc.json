@@ -1,0 +1,6 @@
+{
+    "rules": {
+        "@next/next/no-image-element": "off",
+        "jsx-ally/all-text": "off"
+    }
+}
