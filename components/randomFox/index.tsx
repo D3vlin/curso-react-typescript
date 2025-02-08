@@ -4,12 +4,9 @@ import { JSX } from "react"
 // export const RandomFox1 = () => {
 //     return <img />
 // }
+type Props = { image: string }
 
-const random = () => Math.floor(Math.random() * 123) + 1
-
-export const RandomFox = (): JSX.Element => { // -> Más recomendada hoy en día
-    const image: string = `https://randomfox.ca/images/${random()}.jpg`
-
+export const RandomFox = ({ image }: Props): JSX.Element => { // -> Más recomendada hoy en día
     return <img src={image} width={320} height="auto" className="rounded-lg" />
 }
 
