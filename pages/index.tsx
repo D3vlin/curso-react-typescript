@@ -5,12 +5,16 @@ import { useState } from "react";
 
 const random = () => Math.floor(Math.random() * 123) + 1
 
+type ImageItem = { id: string, url: string}
+
+const generateId = () => Math.random().toString(36).substring(2, 9)
+
 export default function Home(): NextPage {
-  const [images, setImages] = useState<string[]>([
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`])
+  const [images, setImages] = useState<ImageItem[]>([
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg`},
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg`}])
 
   return (
     <div>      
@@ -22,7 +26,7 @@ export default function Home(): NextPage {
         {
           images.map((image, index) => (
             <div key={index} className="p-4">
-              <RandomFox image={image} />
+              <RandomFox image={image.url} />
             </div>
           ))
         }
