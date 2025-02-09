@@ -5,16 +5,14 @@ import { MouseEventHandler, useState } from "react";
 
 const random = () => Math.floor(Math.random() * 123) + 1
 
-type ImageItem = { id: string, url: string}
-
 const generateId = () => Math.random().toString(36).substring(2, 9)
 
 export default function Home(): NextPage {
-  const [images, setImages] = useState<ImageItem[]>([])
+  const [images, setImages] = useState<IImageItem[]>([])
 
     const addNewFox: MouseEventHandler<HTMLButtonElement> = (event) => {
       event.preventDefault()
-      const newImageItem: ImageItem = { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg`}
+      const newImageItem: IImageItem = { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg`}
       setImages([...images, newImageItem])
     }
 
