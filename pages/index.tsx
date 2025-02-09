@@ -2,8 +2,9 @@ import { LazyImage } from "@/components/lazyImage";
 import { NextPage } from "next";
 import Head from "next/head";
 import { MouseEventHandler, useState } from "react";
+import { random } from "lodash"
 
-const random = () => Math.floor(Math.random() * 123) + 1
+const getRandom = () => random(1, 123)
 
 const generateId = () => Math.random().toString(36).substring(2, 9)
 
@@ -12,7 +13,7 @@ export default function Home(): NextPage {
 
     const addNewFox: MouseEventHandler<HTMLButtonElement> = (event) => {
       event.preventDefault()
-      const newImageItem: IImageItem = { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg`}
+      const newImageItem: IImageItem = { id: generateId(), url: `https://randomfox.ca/images/${getRandom()}.jpg`}
       setImages([...images, newImageItem])
     }
 
