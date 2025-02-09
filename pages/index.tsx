@@ -15,12 +15,18 @@ export default function Home(): NextPage {
       event.preventDefault()
       const newImageItem: IImageItem = { id: generateId(), url: `https://randomfox.ca/images/${getRandom()}.jpg`}
       setImages([...images, newImageItem])
+      window.plausible("add_fox")
     }
 
   return (
     <div>      
       <Head>
         <title>Course</title>
+        <script
+          defer
+          data-domain="yourdomain.com"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </Head>
       <main>
         <h1 className="text-3xl font-bold underline">Hello!!</h1>
